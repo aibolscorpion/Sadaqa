@@ -15,6 +15,16 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         peopleInNeedRV = findViewById(R.id.peopleInNeedRV)
+        peopleInNeedRV.adapter = PeopleInNeedListAdapter(fillList())
         peopleInNeedRV.layoutManager = LinearLayoutManager(this)
     }
+    fun fillList() : List<String>{
+        val data = mutableListOf<String>()
+        (0..10).forEach { i ->
+            data.add("%i person")
+        }
+        return data
+    }
+
+
 }
