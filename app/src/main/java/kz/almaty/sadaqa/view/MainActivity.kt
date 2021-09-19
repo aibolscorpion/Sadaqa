@@ -1,29 +1,29 @@
-package kz.almaty.sadaqa
+package kz.almaty.sadaqa.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Gravity
-import android.widget.Button
-import android.widget.Toast
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import kz.almaty.sadaqa.R
+import kz.almaty.sadaqa.viewModel.MainActivityViewModel
 
 class MainActivity : AppCompatActivity() {
     lateinit var peopleInNeedRV : RecyclerView
+    private val viewModel = MainActivityViewModel()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         peopleInNeedRV = findViewById(R.id.peopleInNeedRV)
-        peopleInNeedRV.adapter = PeopleInNeedListAdapter(applicationContext, fillList())
+        viewModel.getLiveData().observe(this, Observer { values ->
+            peopleInNeedRV.adapter = PeopleInNeedListAdapter(applicationContext, values)
+        })
+        viewModel.setLiveData()
         peopleInNeedRV.layoutManager = LinearLayoutManager(this)
-    }
-    fun fillList() : List<String>{
-        val data = mutableListOf<String>()
-        (0..10).forEach { i ->
-            data.add("%i person")
-        }
-        return data
+
+
     }
 
 

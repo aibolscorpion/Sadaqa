@@ -1,6 +1,5 @@
-package kz.almaty.sadaqa
+package kz.almaty.sadaqa.view
 
-import android.app.Person
 import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
@@ -8,8 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
+import kz.almaty.sadaqa.R
 
 class PeopleInNeedListAdapter(val context : Context, val names : List<String>) : RecyclerView.Adapter<PeopleInNeedListAdapter.PersonViewHolder>(){
     class PersonViewHolder(context : Context, itemView : View): RecyclerView.ViewHolder(itemView){
