@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "974407585312",
+    "project_id": "sadaqa-bb802",
+    "storage_bucket": "sadaqa-bb802.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:974407585312:android:eb197e5e50f4adb17cf645",
+        "android_client_info": {
+          "package_name": "kz.almaty.sadaqa"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "974407585312-ctucomabnt6jv2mer7p6i8p1o4ug3trs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyArLHqg-zCFskHPFtwd3boG9UF-PH2pxbc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "974407585312-ctucomabnt6jv2mer7p6i8p1o4ug3trs.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

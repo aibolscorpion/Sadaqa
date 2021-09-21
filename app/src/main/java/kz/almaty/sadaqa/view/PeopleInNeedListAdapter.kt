@@ -9,8 +9,9 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import kz.almaty.sadaqa.R
+import kz.almaty.sadaqa.model.Person
 
-class PeopleInNeedListAdapter(val context : Context, val names : List<String>) : RecyclerView.Adapter<PeopleInNeedListAdapter.PersonViewHolder>(){
+class PeopleInNeedListAdapter(val context : Context, val peopleList : List<Person>) : RecyclerView.Adapter<PeopleInNeedListAdapter.PersonViewHolder>(){
     class PersonViewHolder(context : Context, itemView : View): RecyclerView.ViewHolder(itemView){
         var nameTV : TextView ?= null
         var personIV : ImageView ?= null
@@ -31,12 +32,13 @@ class PeopleInNeedListAdapter(val context : Context, val names : List<String>) :
     }
 
     override fun onBindViewHolder(holder: PersonViewHolder, position: Int) {
-        holder.nameTV?.text = names[position]
+        val person = peopleList[position]
+        holder.nameTV?.text = person.name
 
     }
 
     override fun getItemCount(): Int {
-        return names.size
+        return peopleList.size
     }
 
 }

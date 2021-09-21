@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Sadaqa</string>
+    <string name="successfully_added">Successfully added</string>
+    <string name="addition_failure">Addition was failure </string>
+    <string name="person_name">Erik</string>
+    <string name="person_description">Жагдайы томен отбасы</string>
+    <string name="firebase_table_name">People</string>
 </resources>
