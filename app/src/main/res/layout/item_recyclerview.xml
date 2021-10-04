@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable name="person" type="kz.almaty.sadaqa.model.Person"/>
+    </data>
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -17,7 +21,8 @@
                 android:layout_height="100dp"
                 android:src="@drawable/ic_baseline_accessible_24"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                />
 
             <TextView
                 android:id="@+id/nameTV"
@@ -26,6 +31,8 @@
                 app:layout_constraintStart_toEndOf="@+id/peopleInNeedPhoto"
                 app:layout_constraintTop_toTopOf="@+id/peopleInNeedPhoto"
                 android:layout_marginStart="10dp"
+                android:text="@{person.name}"
                 />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
+</layout>
