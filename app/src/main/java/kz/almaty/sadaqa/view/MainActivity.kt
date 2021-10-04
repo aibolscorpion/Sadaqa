@@ -3,21 +3,22 @@ package kz.almaty.sadaqa.view
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import kz.almaty.sadaqa.R
+import kz.almaty.sadaqa.databinding.ActivityMainBinding
 import kz.almaty.sadaqa.viewModel.MainActivityViewModel
 
 class MainActivity : AppCompatActivity() {
+    lateinit var binding : ActivityMainBinding
     private val viewModel = MainActivityViewModel(this)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
 
-//      createTableWithPerson()
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+//        createTableWithPerson()
         initRecyclerView()
-
     }
 
     fun createTableWithPerson(){
@@ -32,11 +33,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun initRecyclerView(){
-        val peopleInNeedRV : RecyclerView = findViewById(R.id.peopleInNeedRV)
+
         viewModel.peopleLiveData.observe(this, { people ->
-            peopleInNeedRV.adapter = PeopleInNeedListAdapter(applicationContext, people)
+            binding.peopleInNeedRV.adapter = PeopleInNeedListAdapter(applicationContext, people)
         })
-        peopleInNeedRV.layoutManager = LinearLayoutManager(this)
+        binding.peopleInNeedRV.layoutManager = LinearLayoutManager(this)
 
         viewModel.getPeopleFromFirebaseDB()
     }

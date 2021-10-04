@@ -8,13 +8,14 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import kz.almaty.sadaqa.R
 import kz.almaty.sadaqa.model.Person
 
 class PeopleInNeedListAdapter(val context : Context, val peopleList : List<Person>) : RecyclerView.Adapter<PeopleInNeedListAdapter.PersonViewHolder>(){
     class PersonViewHolder(context : Context, itemView : View): RecyclerView.ViewHolder(itemView){
         var nameTV : TextView ?= null
-        var personIV : ImageView ?= null
+        var personIV : ImageView
         init {
             personIV = itemView.findViewById(R.id.peopleInNeedPhoto)
             nameTV = itemView.findViewById(R.id.nameTV)
@@ -34,6 +35,7 @@ class PeopleInNeedListAdapter(val context : Context, val peopleList : List<Perso
     override fun onBindViewHolder(holder: PersonViewHolder, position: Int) {
         val person = peopleList[position]
         holder.nameTV?.text = person.name
+        Glide.with(context).load(person.photo).into(holder.personIV)
 
     }
 
